@@ -403,6 +403,19 @@
     .intro-title { font-size: 24px; }
     .rating-btn { max-width: 48px; font-size: 14px; }
   }
+
+  .tool-row {border:1.5px solid var(--border);border-radius:12px;padding:16px;margin-bottom:12px;}
+  .tool-name {font-size:14px;font-weight:600;color:var(--navy);margin-bottom:12px;}
+  .tool-grid {display:flex;gap:24px;flex-wrap:wrap;margin-bottom:4px;}
+  .tool-col {flex:1;min-width:140px;}
+  .tool-label {font-size:12px;font-weight:500;color:var(--text-light);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.05em;}
+  .tool-options {display:flex;gap:6px;flex-wrap:wrap;}
+  .tool-btn {padding:6px 14px;border:1.5px solid var(--border);border-radius:8px;background:transparent;font-size:13px;font-weight:500;font-family:'Poppins',sans-serif;color:var(--text-light);cursor:pointer;transition:all 0.2s;}
+  .tool-btn:hover {border-color:var(--navy);color:var(--navy);background:var(--gradient-soft);}
+  .tool-btn.selected {background:var(--gradient);border-color:transparent;color:white;}
+  .tool-input {width:100%;border:1.5px solid var(--border);border-radius:8px;padding:8px 12px;font-size:13px;font-family:'Poppins',sans-serif;color:var(--text);outline:none;transition:border-color 0.2s;margin-top:4px;box-sizing:border-box;}
+  .tool-input:focus {border-color:var(--navy);}
+  .tool-input::placeholder {color:#A0AABF;}
 </style>
 </head>
 <body>
@@ -431,459 +444,409 @@
 <main>
 <div class="card" id="formCard">
 
-<!-- SCREEN 0: INTRO -->
 <div id="screen-0">
   <p class="intro-eyebrow">Project Managers · Customer Success</p>
   <h1 class="intro-title">Encuesta de<br><span>flujos de trabajo</span></h1>
-  <p class="intro-desc">
-    El objetivo de esta encuesta es identificar qué partes de vuestro trabajo diario concentran más esfuerzo del necesario, para poder mejorarlas de forma efectiva. No hay respuestas correctas ni incorrectas — cuanto más específicos seáis, más útil será para el equipo.
-  </p>
+  <p class="intro-desc">El objetivo de esta encuesta es identificar qué partes de vuestro trabajo diario concentran más esfuerzo del necesario, para poder mejorarlas de forma efectiva. No hay respuestas correctas ni incorrectas — cuanto más específicos seáis, más útil será para el equipo.</p>
   <div class="info-pills">
     <div class="pill">⏱ 5–8 minutos</div>
     <div class="pill">💬 9 preguntas</div>
     <div class="pill">🔒 Respuestas anónimas</div>
   </div>
-  <div class="nav">
-    <div></div>
-    <button class="btn-next btn-next-only" onclick="goTo(1)">Empezar →</button>
-  </div>
+  <div class="nav"><div></div><button class="btn-next btn-next-only" onclick="goTo(1)">Empezar →</button></div>
 </div>
 
-<!-- SCREEN 1: FASE 1 -->
 <div id="screen-1" style="display:none">
   <div class="tag tag-fase">Fase 1</div>
   <h2 class="section-title">Primer contacto con el cliente</h2>
-  <div class="context-box">Agendar la primera reunión, presentar la propuesta de valor, realizar las sesiones de formación, rellenar el BMC y enviar los materiales y encuesta de satisfacción.</div>
-
+  <div class="context-box">Agendar la primera reunión (kick-off de proyecto), preparar y presentar el kick-off de proyecto, realizar las sesiones de formación si el cliente lo solicita.</div>
   <div class="rating-block">
     <div class="rating-label">¿Con qué frecuencia realizas tareas repetitivas en esta fase? <span class="rating-sublabel">(Repetitividad)</span></div>
-    <div class="rating-options" id="r1a">
-      <button class="rating-btn" onclick="selectRating('r1a',1)">1</button>
-      <button class="rating-btn" onclick="selectRating('r1a',2)">2</button>
-      <button class="rating-btn" onclick="selectRating('r1a',3)">3</button>
-      <button class="rating-btn" onclick="selectRating('r1a',4)">4</button>
-      <button class="rating-btn" onclick="selectRating('r1a',5)">5</button>
-    </div>
+    <div class="rating-options" id="r1a"><button class="rating-btn" onclick="selectRating('r1a',1)">1</button><button class="rating-btn" onclick="selectRating('r1a',2)">2</button><button class="rating-btn" onclick="selectRating('r1a',3)">3</button><button class="rating-btn" onclick="selectRating('r1a',4)">4</button><button class="rating-btn" onclick="selectRating('r1a',5)">5</button></div>
     <div class="rating-legend"><span>Casi nunca</span><span>Constantemente</span></div>
   </div>
-
   <div class="rating-block">
     <div class="rating-label">¿Cuánto tiempo consume esta fase respecto a lo que debería? <span class="rating-sublabel">(Tiempo)</span></div>
-    <div class="rating-options" id="r1b">
-      <button class="rating-btn" onclick="selectRating('r1b',1)">1</button>
-      <button class="rating-btn" onclick="selectRating('r1b',2)">2</button>
-      <button class="rating-btn" onclick="selectRating('r1b',3)">3</button>
-      <button class="rating-btn" onclick="selectRating('r1b',4)">4</button>
-      <button class="rating-btn" onclick="selectRating('r1b',5)">5</button>
-    </div>
+    <div class="rating-options" id="r1b"><button class="rating-btn" onclick="selectRating('r1b',1)">1</button><button class="rating-btn" onclick="selectRating('r1b',2)">2</button><button class="rating-btn" onclick="selectRating('r1b',3)">3</button><button class="rating-btn" onclick="selectRating('r1b',4)">4</button><button class="rating-btn" onclick="selectRating('r1b',5)">5</button></div>
     <div class="rating-legend"><span>Lo justo</span><span>Mucho más del necesario</span></div>
   </div>
-
   <div class="divider"></div>
   <div class="question-label">¿Qué es lo que más te frena o ralentiza en esta fase?</div>
-  <textarea id="q1" placeholder="Ej: Siempre tengo que buscar manualmente los materiales de formación, el email de seguimiento lo redacto desde cero cada vez..."></textarea>
-
-  <div class="nav">
-    <button class="btn-back" onclick="goTo(0)">← Atrás</button>
-    <button class="btn-next" onclick="goTo(2)" id="btn1">Siguiente →</button>
-  </div>
+  <textarea id="q1" placeholder="Ej: Preparar el kick-off desde cero para cada cliente, coordinar agendas, adaptar los materiales de formación..."></textarea>
+  <div class="nav"><button class="btn-back" onclick="goTo(0)">← Atrás</button><button class="btn-next" onclick="goTo(2)">Siguiente →</button></div>
 </div>
 
-<!-- SCREEN 2: FASE 2 -->
 <div id="screen-2" style="display:none">
   <div class="tag tag-fase">Fase 2</div>
-  <h2 class="section-title">Selección de flexumers</h2>
-  <div class="context-box">Solicitar el portfolio al cliente, revisar y filtrar flexumers según criterios de flexibilidad, crear el shortlist, obtener la aprobación del cliente y agendar la primera reunión de onboarding.</div>
-
-  <div class="rating-block">
-    <div class="rating-label">Repetitividad <span class="rating-sublabel">¿Con qué frecuencia realizas tareas repetitivas?</span></div>
-    <div class="rating-options" id="r2a">
-      <button class="rating-btn" onclick="selectRating('r2a',1)">1</button>
-      <button class="rating-btn" onclick="selectRating('r2a',2)">2</button>
-      <button class="rating-btn" onclick="selectRating('r2a',3)">3</button>
-      <button class="rating-btn" onclick="selectRating('r2a',4)">4</button>
-      <button class="rating-btn" onclick="selectRating('r2a',5)">5</button>
-    </div>
-    <div class="rating-legend"><span>Casi nunca</span><span>Constantemente</span></div>
-  </div>
-
-  <div class="rating-block">
-    <div class="rating-label">Consumo de tiempo <span class="rating-sublabel">¿Cuánto tiempo consume vs. lo que debería?</span></div>
-    <div class="rating-options" id="r2b">
-      <button class="rating-btn" onclick="selectRating('r2b',1)">1</button>
-      <button class="rating-btn" onclick="selectRating('r2b',2)">2</button>
-      <button class="rating-btn" onclick="selectRating('r2b',3)">3</button>
-      <button class="rating-btn" onclick="selectRating('r2b',4)">4</button>
-      <button class="rating-btn" onclick="selectRating('r2b',5)">5</button>
-    </div>
-    <div class="rating-legend"><span>Lo justo</span><span>Mucho más del necesario</span></div>
-  </div>
-
-  <div class="divider"></div>
-  <div class="question-label">¿Qué es lo que más te frena o ralentiza en esta fase?</div>
-  <textarea id="q2" placeholder="Ej: Cruzar los datos del portfolio con los criterios de selección es manual, la aprobación del shortlist requiere muchas idas y venidas..."></textarea>
-
-  <div class="nav">
-    <button class="btn-back" onclick="goTo(1)">← Atrás</button>
-    <button class="btn-next" onclick="goTo(3)">Siguiente →</button>
-  </div>
-</div>
-
-<!-- SCREEN 3: FASE 3 -->
-<div id="screen-3" style="display:none">
-  <div class="tag tag-fase">Fase 3</div>
   <h2 class="section-title">Auditoría de flexibilidad</h2>
   <div class="context-box">Agendar la auditoría con el flexumer, registrar la información de sus procesos flexibles, redactar la operativa de flexibilidad y resolver dudas técnicas hasta obtener el 'GO' del flexumer.</div>
-
   <div class="rating-block">
     <div class="rating-label">Repetitividad <span class="rating-sublabel">¿Con qué frecuencia realizas tareas repetitivas?</span></div>
-    <div class="rating-options" id="r3a">
-      <button class="rating-btn" onclick="selectRating('r3a',1)">1</button>
-      <button class="rating-btn" onclick="selectRating('r3a',2)">2</button>
-      <button class="rating-btn" onclick="selectRating('r3a',3)">3</button>
-      <button class="rating-btn" onclick="selectRating('r3a',4)">4</button>
-      <button class="rating-btn" onclick="selectRating('r3a',5)">5</button>
-    </div>
+    <div class="rating-options" id="r2a"><button class="rating-btn" onclick="selectRating('r2a',1)">1</button><button class="rating-btn" onclick="selectRating('r2a',2)">2</button><button class="rating-btn" onclick="selectRating('r2a',3)">3</button><button class="rating-btn" onclick="selectRating('r2a',4)">4</button><button class="rating-btn" onclick="selectRating('r2a',5)">5</button></div>
     <div class="rating-legend"><span>Casi nunca</span><span>Constantemente</span></div>
   </div>
-
   <div class="rating-block">
     <div class="rating-label">Consumo de tiempo <span class="rating-sublabel">¿Cuánto tiempo consume vs. lo que debería?</span></div>
-    <div class="rating-options" id="r3b">
-      <button class="rating-btn" onclick="selectRating('r3b',1)">1</button>
-      <button class="rating-btn" onclick="selectRating('r3b',2)">2</button>
-      <button class="rating-btn" onclick="selectRating('r3b',3)">3</button>
-      <button class="rating-btn" onclick="selectRating('r3b',4)">4</button>
-      <button class="rating-btn" onclick="selectRating('r3b',5)">5</button>
-    </div>
+    <div class="rating-options" id="r2b"><button class="rating-btn" onclick="selectRating('r2b',1)">1</button><button class="rating-btn" onclick="selectRating('r2b',2)">2</button><button class="rating-btn" onclick="selectRating('r2b',3)">3</button><button class="rating-btn" onclick="selectRating('r2b',4)">4</button><button class="rating-btn" onclick="selectRating('r2b',5)">5</button></div>
     <div class="rating-legend"><span>Lo justo</span><span>Mucho más del necesario</span></div>
   </div>
-
   <div class="divider"></div>
   <div class="question-label">¿Qué es lo que más te frena o ralentiza en esta fase?</div>
-  <textarea id="q3" placeholder="Ej: Tomar notas y pasarlas a la plantilla de operativa es muy manual, necesito varias reuniones para cerrar los detalles técnicos..."></textarea>
-
-  <div class="nav">
-    <button class="btn-back" onclick="goTo(2)">← Atrás</button>
-    <button class="btn-next" onclick="goTo(4)">Siguiente →</button>
-  </div>
+  <textarea id="q2" placeholder="Ej: Tomar notas y pasarlas a la plantilla de operativa es muy manual, necesito varias reuniones para cerrar los detalles técnicos..."></textarea>
+  <div class="nav"><button class="btn-back" onclick="goTo(1)">← Atrás</button><button class="btn-next" onclick="goTo(3)">Siguiente →</button></div>
 </div>
 
-<!-- SCREEN 4: FASE 4 -->
-<div id="screen-4" style="display:none">
-  <div class="tag tag-fase">Fase 4</div>
+<div id="screen-3" style="display:none">
+  <div class="tag tag-fase">Fase 3</div>
   <h2 class="section-title">Configuración del site</h2>
   <div class="context-box">Recopilar los datos técnicos del site, configurar cliente, flexumer y contrato en la API, crear el borrador del mapeo y la microgrid, validarlos y coordinar con el equipo de conectividad.</div>
-
   <div class="rating-block">
     <div class="rating-label">Repetitividad <span class="rating-sublabel">¿Con qué frecuencia realizas tareas repetitivas?</span></div>
-    <div class="rating-options" id="r4a">
-      <button class="rating-btn" onclick="selectRating('r4a',1)">1</button>
-      <button class="rating-btn" onclick="selectRating('r4a',2)">2</button>
-      <button class="rating-btn" onclick="selectRating('r4a',3)">3</button>
-      <button class="rating-btn" onclick="selectRating('r4a',4)">4</button>
-      <button class="rating-btn" onclick="selectRating('r4a',5)">5</button>
-    </div>
+    <div class="rating-options" id="r3a"><button class="rating-btn" onclick="selectRating('r3a',1)">1</button><button class="rating-btn" onclick="selectRating('r3a',2)">2</button><button class="rating-btn" onclick="selectRating('r3a',3)">3</button><button class="rating-btn" onclick="selectRating('r3a',4)">4</button><button class="rating-btn" onclick="selectRating('r3a',5)">5</button></div>
     <div class="rating-legend"><span>Casi nunca</span><span>Constantemente</span></div>
   </div>
-
   <div class="rating-block">
     <div class="rating-label">Consumo de tiempo <span class="rating-sublabel">¿Cuánto tiempo consume vs. lo que debería?</span></div>
-    <div class="rating-options" id="r4b">
-      <button class="rating-btn" onclick="selectRating('r4b',1)">1</button>
-      <button class="rating-btn" onclick="selectRating('r4b',2)">2</button>
-      <button class="rating-btn" onclick="selectRating('r4b',3)">3</button>
-      <button class="rating-btn" onclick="selectRating('r4b',4)">4</button>
-      <button class="rating-btn" onclick="selectRating('r4b',5)">5</button>
-    </div>
+    <div class="rating-options" id="r3b"><button class="rating-btn" onclick="selectRating('r3b',1)">1</button><button class="rating-btn" onclick="selectRating('r3b',2)">2</button><button class="rating-btn" onclick="selectRating('r3b',3)">3</button><button class="rating-btn" onclick="selectRating('r3b',4)">4</button><button class="rating-btn" onclick="selectRating('r3b',5)">5</button></div>
     <div class="rating-legend"><span>Lo justo</span><span>Mucho más del necesario</span></div>
   </div>
-
   <div class="divider"></div>
   <div class="question-label">¿Qué es lo que más te frena o ralentiza en esta fase?</div>
-  <textarea id="q4" placeholder="Ej: Tengo que introducir los mismos datos en la API y en Confluence por separado, el borrador de la microgrid requiere muchas validaciones..."></textarea>
-
-  <div class="nav">
-    <button class="btn-back" onclick="goTo(3)">← Atrás</button>
-    <button class="btn-next" onclick="goTo(5)">Siguiente →</button>
-  </div>
+  <textarea id="q3" placeholder="Ej: Tengo que introducir los mismos datos en la API y en Confluence por separado, el borrador de la microgrid requiere muchas validaciones..."></textarea>
+  <div class="nav"><button class="btn-back" onclick="goTo(2)">← Atrás</button><button class="btn-next" onclick="goTo(4)">Siguiente →</button></div>
 </div>
 
-<!-- SCREEN 5: FASE 5 -->
-<div id="screen-5" style="display:none">
-  <div class="tag tag-fase">Fase 5</div>
+<div id="screen-4" style="display:none">
+  <div class="tag tag-fase">Fase 4</div>
   <h2 class="section-title">Integración y validación</h2>
   <div class="context-box">Coordinar los equipos IT del cliente y de Bamboo, supervisar la integración de activos, validar señales de lectura y escritura y completar el checklist de validación.</div>
-
   <div class="rating-block">
     <div class="rating-label">Repetitividad <span class="rating-sublabel">¿Con qué frecuencia realizas tareas repetitivas?</span></div>
-    <div class="rating-options" id="r5a">
-      <button class="rating-btn" onclick="selectRating('r5a',1)">1</button>
-      <button class="rating-btn" onclick="selectRating('r5a',2)">2</button>
-      <button class="rating-btn" onclick="selectRating('r5a',3)">3</button>
-      <button class="rating-btn" onclick="selectRating('r5a',4)">4</button>
-      <button class="rating-btn" onclick="selectRating('r5a',5)">5</button>
-    </div>
+    <div class="rating-options" id="r4a"><button class="rating-btn" onclick="selectRating('r4a',1)">1</button><button class="rating-btn" onclick="selectRating('r4a',2)">2</button><button class="rating-btn" onclick="selectRating('r4a',3)">3</button><button class="rating-btn" onclick="selectRating('r4a',4)">4</button><button class="rating-btn" onclick="selectRating('r4a',5)">5</button></div>
     <div class="rating-legend"><span>Casi nunca</span><span>Constantemente</span></div>
   </div>
-
   <div class="rating-block">
     <div class="rating-label">Consumo de tiempo <span class="rating-sublabel">¿Cuánto tiempo consume vs. lo que debería?</span></div>
-    <div class="rating-options" id="r5b">
-      <button class="rating-btn" onclick="selectRating('r5b',1)">1</button>
-      <button class="rating-btn" onclick="selectRating('r5b',2)">2</button>
-      <button class="rating-btn" onclick="selectRating('r5b',3)">3</button>
-      <button class="rating-btn" onclick="selectRating('r5b',4)">4</button>
-      <button class="rating-btn" onclick="selectRating('r5b',5)">5</button>
-    </div>
+    <div class="rating-options" id="r4b"><button class="rating-btn" onclick="selectRating('r4b',1)">1</button><button class="rating-btn" onclick="selectRating('r4b',2)">2</button><button class="rating-btn" onclick="selectRating('r4b',3)">3</button><button class="rating-btn" onclick="selectRating('r4b',4)">4</button><button class="rating-btn" onclick="selectRating('r4b',5)">5</button></div>
     <div class="rating-legend"><span>Lo justo</span><span>Mucho más del necesario</span></div>
   </div>
-
   <div class="divider"></div>
   <div class="question-label">¿Qué es lo que más te frena o ralentiza en esta fase?</div>
-  <textarea id="q5" placeholder="Ej: Los checks de validación los hago en InfluxDB y los anoto manualmente en el Word, la coordinación con el equipo IT del cliente no tiene un canal claro..."></textarea>
-
-  <div class="nav">
-    <button class="btn-back" onclick="goTo(4)">← Atrás</button>
-    <button class="btn-next" onclick="goTo(6)">Siguiente →</button>
-  </div>
+  <textarea id="q4" placeholder="Ej: Los checks de validación los hago en InfluxDB y los anoto manualmente en el Word, la coordinación con el equipo IT del cliente no tiene un canal claro..."></textarea>
+  <div class="nav"><button class="btn-back" onclick="goTo(3)">← Atrás</button><button class="btn-next" onclick="goTo(5)">Siguiente →</button></div>
 </div>
 
-<!-- SCREEN 6: FASE 6 -->
-<div id="screen-6" style="display:none">
-  <div class="tag tag-fase">Fase 6</div>
+<div id="screen-5" style="display:none">
+  <div class="tag tag-fase">Fase 5</div>
   <h2 class="section-title">Operación</h2>
   <div class="context-box">Realizar la demo con cliente y flexumer, poner el site en operación, ejecutar el monitoreo semanal (Flexumer Check), gestionar incidencias y generar el reporte mensual.</div>
-
   <div class="rating-block">
     <div class="rating-label">Repetitividad <span class="rating-sublabel">¿Con qué frecuencia realizas tareas repetitivas?</span></div>
-    <div class="rating-options" id="r6a">
-      <button class="rating-btn" onclick="selectRating('r6a',1)">1</button>
-      <button class="rating-btn" onclick="selectRating('r6a',2)">2</button>
-      <button class="rating-btn" onclick="selectRating('r6a',3)">3</button>
-      <button class="rating-btn" onclick="selectRating('r6a',4)">4</button>
-      <button class="rating-btn" onclick="selectRating('r6a',5)">5</button>
-    </div>
+    <div class="rating-options" id="r5a"><button class="rating-btn" onclick="selectRating('r5a',1)">1</button><button class="rating-btn" onclick="selectRating('r5a',2)">2</button><button class="rating-btn" onclick="selectRating('r5a',3)">3</button><button class="rating-btn" onclick="selectRating('r5a',4)">4</button><button class="rating-btn" onclick="selectRating('r5a',5)">5</button></div>
     <div class="rating-legend"><span>Casi nunca</span><span>Constantemente</span></div>
   </div>
-
   <div class="rating-block">
     <div class="rating-label">Consumo de tiempo <span class="rating-sublabel">¿Cuánto tiempo consume vs. lo que debería?</span></div>
-    <div class="rating-options" id="r6b">
-      <button class="rating-btn" onclick="selectRating('r6b',1)">1</button>
-      <button class="rating-btn" onclick="selectRating('r6b',2)">2</button>
-      <button class="rating-btn" onclick="selectRating('r6b',3)">3</button>
-      <button class="rating-btn" onclick="selectRating('r6b',4)">4</button>
-      <button class="rating-btn" onclick="selectRating('r6b',5)">5</button>
-    </div>
+    <div class="rating-options" id="r5b"><button class="rating-btn" onclick="selectRating('r5b',1)">1</button><button class="rating-btn" onclick="selectRating('r5b',2)">2</button><button class="rating-btn" onclick="selectRating('r5b',3)">3</button><button class="rating-btn" onclick="selectRating('r5b',4)">4</button><button class="rating-btn" onclick="selectRating('r5b',5)">5</button></div>
     <div class="rating-legend"><span>Lo justo</span><span>Mucho más del necesario</span></div>
   </div>
-
   <div class="divider"></div>
   <div class="question-label">¿Qué es lo que más te frena o ralentiza en esta fase?</div>
-  <textarea id="q6" placeholder="Ej: El reporte mensual requiere descargar el CSV, reformatearlo en Looker y ajustar campos manualmente. El monitoreo semanal no tiene un dashboard centralizado..."></textarea>
-
-  <div class="nav">
-    <button class="btn-back" onclick="goTo(5)">← Atrás</button>
-    <button class="btn-next" onclick="goTo(7)">Siguiente →</button>
-  </div>
+  <textarea id="q5" placeholder="Ej: El reporte mensual requiere descargar el CSV, reformatearlo en Looker y ajustar campos manualmente..."></textarea>
+  <div class="nav"><button class="btn-back" onclick="goTo(4)">← Atrás</button><button class="btn-next" onclick="goTo(6)">Siguiente →</button></div>
 </div>
 
-<!-- SCREEN 7: INCIDENCIAS -->
+<div id="screen-6" style="display:none">
+  <div class="tag tag-fase">Fase 6</div>
+  <h2 class="section-title">Simulaciones</h2>
+  <div class="context-box">Uso de Customer Tools u otras herramientas para realizar simulaciones de flexibilidad para clientes: preparación de los datos de entrada, ejecución de la simulación e interpretación y comunicación de los resultados.</div>
+  <div class="rating-block">
+    <div class="rating-label">Repetitividad <span class="rating-sublabel">¿Con qué frecuencia realizas tareas repetitivas?</span></div>
+    <div class="rating-options" id="r6a"><button class="rating-btn" onclick="selectRating('r6a',1)">1</button><button class="rating-btn" onclick="selectRating('r6a',2)">2</button><button class="rating-btn" onclick="selectRating('r6a',3)">3</button><button class="rating-btn" onclick="selectRating('r6a',4)">4</button><button class="rating-btn" onclick="selectRating('r6a',5)">5</button></div>
+    <div class="rating-legend"><span>Casi nunca</span><span>Constantemente</span></div>
+  </div>
+  <div class="rating-block">
+    <div class="rating-label">Consumo de tiempo <span class="rating-sublabel">¿Cuánto tiempo consume vs. lo que debería?</span></div>
+    <div class="rating-options" id="r6b"><button class="rating-btn" onclick="selectRating('r6b',1)">1</button><button class="rating-btn" onclick="selectRating('r6b',2)">2</button><button class="rating-btn" onclick="selectRating('r6b',3)">3</button><button class="rating-btn" onclick="selectRating('r6b',4)">4</button><button class="rating-btn" onclick="selectRating('r6b',5)">5</button></div>
+    <div class="rating-legend"><span>Lo justo</span><span>Mucho más del necesario</span></div>
+  </div>
+  <div class="divider"></div>
+  <div class="question-label">¿Qué es lo que más te frena o ralentiza en esta fase?</div>
+  <textarea id="q6" placeholder="Ej: Preparar los datos de entrada para la simulación es muy manual, los resultados hay que formatearlos antes de enviarlos al cliente..."></textarea>
+  <div class="nav"><button class="btn-back" onclick="goTo(5)">← Atrás</button><button class="btn-next" onclick="goTo(7)">Siguiente →</button></div>
+</div>
+
 <div id="screen-7" style="display:none">
   <div class="tag tag-recurrente">Tarea recurrente</div>
   <h2 class="section-title">Gestión de incidencias</h2>
-  <div class="context-box">Detección de problemas en un site, reporte, escalado al client manager y seguimiento hasta el cierre.</div>
-
+  <div class="context-box">Detección de problemas en un site, reporte, escalado al KAM y seguimiento hasta el cierre.</div>
   <div class="rating-block">
     <div class="rating-label">Repetitividad <span class="rating-sublabel">¿Con qué frecuencia realizas tareas repetitivas?</span></div>
-    <div class="rating-options" id="r7a">
-      <button class="rating-btn" onclick="selectRating('r7a',1)">1</button>
-      <button class="rating-btn" onclick="selectRating('r7a',2)">2</button>
-      <button class="rating-btn" onclick="selectRating('r7a',3)">3</button>
-      <button class="rating-btn" onclick="selectRating('r7a',4)">4</button>
-      <button class="rating-btn" onclick="selectRating('r7a',5)">5</button>
-    </div>
+    <div class="rating-options" id="r7a"><button class="rating-btn" onclick="selectRating('r7a',1)">1</button><button class="rating-btn" onclick="selectRating('r7a',2)">2</button><button class="rating-btn" onclick="selectRating('r7a',3)">3</button><button class="rating-btn" onclick="selectRating('r7a',4)">4</button><button class="rating-btn" onclick="selectRating('r7a',5)">5</button></div>
     <div class="rating-legend"><span>Casi nunca</span><span>Constantemente</span></div>
   </div>
-
   <div class="rating-block">
     <div class="rating-label">Consumo de tiempo <span class="rating-sublabel">¿Cuánto tiempo consume vs. lo que debería?</span></div>
-    <div class="rating-options" id="r7b">
-      <button class="rating-btn" onclick="selectRating('r7b',1)">1</button>
-      <button class="rating-btn" onclick="selectRating('r7b',2)">2</button>
-      <button class="rating-btn" onclick="selectRating('r7b',3)">3</button>
-      <button class="rating-btn" onclick="selectRating('r7b',4)">4</button>
-      <button class="rating-btn" onclick="selectRating('r7b',5)">5</button>
-    </div>
+    <div class="rating-options" id="r7b"><button class="rating-btn" onclick="selectRating('r7b',1)">1</button><button class="rating-btn" onclick="selectRating('r7b',2)">2</button><button class="rating-btn" onclick="selectRating('r7b',3)">3</button><button class="rating-btn" onclick="selectRating('r7b',4)">4</button><button class="rating-btn" onclick="selectRating('r7b',5)">5</button></div>
     <div class="rating-legend"><span>Lo justo</span><span>Mucho más del necesario</span></div>
   </div>
-
   <div class="divider"></div>
   <div class="question-label">¿Qué es lo que más te frena en la gestión de incidencias?</div>
-  <textarea id="q7" placeholder="Ej: No hay un sistema centralizado de tickets, aviso por Slack y luego hago seguimiento manual, el escalado al client manager no siempre es claro..."></textarea>
-
-  <div class="nav">
-    <button class="btn-back" onclick="goTo(6)">← Atrás</button>
-    <button class="btn-next" onclick="goTo(8)">Siguiente →</button>
-  </div>
+  <textarea id="q7" placeholder="Ej: No hay un sistema centralizado de tickets, aviso por Slack y luego hago seguimiento manual, el escalado al KAM no siempre es claro..."></textarea>
+  <div class="nav"><button class="btn-back" onclick="goTo(6)">← Atrás</button><button class="btn-next" onclick="goTo(8)">Siguiente →</button></div>
 </div>
 
-<!-- SCREEN 8: HERRAMIENTAS -->
 <div id="screen-8" style="display:none">
   <div class="tag tag-recurrente">Tarea recurrente</div>
   <h2 class="section-title">Herramientas del día a día</h2>
-  <div class="context-box">Uso recurrente de HubSpot, la API/frontend de Bamboo, Confluence, InfluxDB, Looker, Excel, Google Drive u otras.</div>
-
-  <div class="rating-block">
-    <div class="rating-label">Repetitividad <span class="rating-sublabel">¿Con qué frecuencia realizas tareas repetitivas con las herramientas?</span></div>
-    <div class="rating-options" id="r8a">
-      <button class="rating-btn" onclick="selectRating('r8a',1)">1</button>
-      <button class="rating-btn" onclick="selectRating('r8a',2)">2</button>
-      <button class="rating-btn" onclick="selectRating('r8a',3)">3</button>
-      <button class="rating-btn" onclick="selectRating('r8a',4)">4</button>
-      <button class="rating-btn" onclick="selectRating('r8a',5)">5</button>
+  <div class="context-box">Para cada herramienta, indica con qué frecuencia la usas, si genera tareas repetitivas y para qué la utilizas principalmente.</div>
+  
+  <div class="tool-row">
+    <div class="tool-name">API Bamboo Energy</div>
+    <div class="tool-grid">
+      <div class="tool-col">
+        <div class="tool-label">Frecuencia de uso</div>
+        <div class="tool-options" id="freq-api_bamboo">
+          <button class="tool-btn" onclick="selectTool('freq-api_bamboo','alta',this)">Alta</button>
+          <button class="tool-btn" onclick="selectTool('freq-api_bamboo','media',this)">Media</button>
+          <button class="tool-btn" onclick="selectTool('freq-api_bamboo','baja',this)">Baja</button>
+        </div>
+      </div>
+      <div class="tool-col">
+        <div class="tool-label">¿Genera tareas repetitivas?</div>
+        <div class="tool-options" id="rep-api_bamboo">
+          <button class="tool-btn" onclick="selectTool('rep-api_bamboo','si',this)">Sí</button>
+          <button class="tool-btn" onclick="selectTool('rep-api_bamboo','no',this)">No</button>
+        </div>
+      </div>
     </div>
-    <div class="rating-legend"><span>Casi nunca</span><span>Constantemente</span></div>
+    <div class="tool-label" style="margin-top:10px">¿Para qué la usas principalmente?</div>
+    <input class="tool-input" id="uso-api_bamboo" type="text" placeholder="Ej: Configurar sites, crear contratos, validar datos...">
   </div>
-
-  <div class="rating-block">
-    <div class="rating-label">Consumo de tiempo <span class="rating-sublabel">¿Cuánto tiempo consume vs. lo que debería?</span></div>
-    <div class="rating-options" id="r8b">
-      <button class="rating-btn" onclick="selectRating('r8b',1)">1</button>
-      <button class="rating-btn" onclick="selectRating('r8b',2)">2</button>
-      <button class="rating-btn" onclick="selectRating('r8b',3)">3</button>
-      <button class="rating-btn" onclick="selectRating('r8b',4)">4</button>
-      <button class="rating-btn" onclick="selectRating('r8b',5)">5</button>
+  <div class="tool-row">
+    <div class="tool-name">HubSpot</div>
+    <div class="tool-grid">
+      <div class="tool-col">
+        <div class="tool-label">Frecuencia de uso</div>
+        <div class="tool-options" id="freq-hubspot">
+          <button class="tool-btn" onclick="selectTool('freq-hubspot','alta',this)">Alta</button>
+          <button class="tool-btn" onclick="selectTool('freq-hubspot','media',this)">Media</button>
+          <button class="tool-btn" onclick="selectTool('freq-hubspot','baja',this)">Baja</button>
+        </div>
+      </div>
+      <div class="tool-col">
+        <div class="tool-label">¿Genera tareas repetitivas?</div>
+        <div class="tool-options" id="rep-hubspot">
+          <button class="tool-btn" onclick="selectTool('rep-hubspot','si',this)">Sí</button>
+          <button class="tool-btn" onclick="selectTool('rep-hubspot','no',this)">No</button>
+        </div>
+      </div>
     </div>
-    <div class="rating-legend"><span>Lo justo</span><span>Mucho más del necesario</span></div>
+    <div class="tool-label" style="margin-top:10px">¿Para qué la usas principalmente?</div>
+    <input class="tool-input" id="uso-hubspot" type="text" placeholder="Ej: Gestionar pipeline de clientes, registrar interacciones...">
   </div>
-
-  <div class="divider"></div>
-  <div class="question-label">¿Entre qué herramientas mueves información con más frecuencia? ¿Dónde pierdes más tiempo?</div>
-  <textarea id="q8" placeholder="Ej: Copio datos del Excel de portfolio a la API manualmente, actualizo HubSpot por separado de la plataforma, busco información en Confluence que no encuentro fácilmente..."></textarea>
-
-  <div class="nav">
-    <button class="btn-back" onclick="goTo(7)">← Atrás</button>
-    <button class="btn-next" onclick="goTo(9)">Siguiente →</button>
+  <div class="tool-row">
+    <div class="tool-name">Confluence</div>
+    <div class="tool-grid">
+      <div class="tool-col">
+        <div class="tool-label">Frecuencia de uso</div>
+        <div class="tool-options" id="freq-confluence">
+          <button class="tool-btn" onclick="selectTool('freq-confluence','alta',this)">Alta</button>
+          <button class="tool-btn" onclick="selectTool('freq-confluence','media',this)">Media</button>
+          <button class="tool-btn" onclick="selectTool('freq-confluence','baja',this)">Baja</button>
+        </div>
+      </div>
+      <div class="tool-col">
+        <div class="tool-label">¿Genera tareas repetitivas?</div>
+        <div class="tool-options" id="rep-confluence">
+          <button class="tool-btn" onclick="selectTool('rep-confluence','si',this)">Sí</button>
+          <button class="tool-btn" onclick="selectTool('rep-confluence','no',this)">No</button>
+        </div>
+      </div>
+    </div>
+    <div class="tool-label" style="margin-top:10px">¿Para qué la usas principalmente?</div>
+    <input class="tool-input" id="uso-confluence" type="text" placeholder="Ej: Documentar procesos, consultar manuales, registrar proyectos...">
   </div>
+  <div class="tool-row">
+    <div class="tool-name">InfluxDB</div>
+    <div class="tool-grid">
+      <div class="tool-col">
+        <div class="tool-label">Frecuencia de uso</div>
+        <div class="tool-options" id="freq-influxdb">
+          <button class="tool-btn" onclick="selectTool('freq-influxdb','alta',this)">Alta</button>
+          <button class="tool-btn" onclick="selectTool('freq-influxdb','media',this)">Media</button>
+          <button class="tool-btn" onclick="selectTool('freq-influxdb','baja',this)">Baja</button>
+        </div>
+      </div>
+      <div class="tool-col">
+        <div class="tool-label">¿Genera tareas repetitivas?</div>
+        <div class="tool-options" id="rep-influxdb">
+          <button class="tool-btn" onclick="selectTool('rep-influxdb','si',this)">Sí</button>
+          <button class="tool-btn" onclick="selectTool('rep-influxdb','no',this)">No</button>
+        </div>
+      </div>
+    </div>
+    <div class="tool-label" style="margin-top:10px">¿Para qué la usas principalmente?</div>
+    <input class="tool-input" id="uso-influxdb" type="text" placeholder="Ej: Validar señales, revisar datos de telemetría...">
+  </div>
+  <div class="tool-row">
+    <div class="tool-name">Looker Studio</div>
+    <div class="tool-grid">
+      <div class="tool-col">
+        <div class="tool-label">Frecuencia de uso</div>
+        <div class="tool-options" id="freq-looker">
+          <button class="tool-btn" onclick="selectTool('freq-looker','alta',this)">Alta</button>
+          <button class="tool-btn" onclick="selectTool('freq-looker','media',this)">Media</button>
+          <button class="tool-btn" onclick="selectTool('freq-looker','baja',this)">Baja</button>
+        </div>
+      </div>
+      <div class="tool-col">
+        <div class="tool-label">¿Genera tareas repetitivas?</div>
+        <div class="tool-options" id="rep-looker">
+          <button class="tool-btn" onclick="selectTool('rep-looker','si',this)">Sí</button>
+          <button class="tool-btn" onclick="selectTool('rep-looker','no',this)">No</button>
+        </div>
+      </div>
+    </div>
+    <div class="tool-label" style="margin-top:10px">¿Para qué la usas principalmente?</div>
+    <input class="tool-input" id="uso-looker" type="text" placeholder="Ej: Generar reportes mensuales, crear dashboards...">
+  </div>
+  <div class="tool-row">
+    <div class="tool-name">Excel / Google Sheets</div>
+    <div class="tool-grid">
+      <div class="tool-col">
+        <div class="tool-label">Frecuencia de uso</div>
+        <div class="tool-options" id="freq-excel">
+          <button class="tool-btn" onclick="selectTool('freq-excel','alta',this)">Alta</button>
+          <button class="tool-btn" onclick="selectTool('freq-excel','media',this)">Media</button>
+          <button class="tool-btn" onclick="selectTool('freq-excel','baja',this)">Baja</button>
+        </div>
+      </div>
+      <div class="tool-col">
+        <div class="tool-label">¿Genera tareas repetitivas?</div>
+        <div class="tool-options" id="rep-excel">
+          <button class="tool-btn" onclick="selectTool('rep-excel','si',this)">Sí</button>
+          <button class="tool-btn" onclick="selectTool('rep-excel','no',this)">No</button>
+        </div>
+      </div>
+    </div>
+    <div class="tool-label" style="margin-top:10px">¿Para qué la usas principalmente?</div>
+    <input class="tool-input" id="uso-excel" type="text" placeholder="Ej: Gestionar portfolios, crear listas, analizar datos...">
+  </div>
+  <div class="tool-row">
+    <div class="tool-name">Google Drive</div>
+    <div class="tool-grid">
+      <div class="tool-col">
+        <div class="tool-label">Frecuencia de uso</div>
+        <div class="tool-options" id="freq-gdrive">
+          <button class="tool-btn" onclick="selectTool('freq-gdrive','alta',this)">Alta</button>
+          <button class="tool-btn" onclick="selectTool('freq-gdrive','media',this)">Media</button>
+          <button class="tool-btn" onclick="selectTool('freq-gdrive','baja',this)">Baja</button>
+        </div>
+      </div>
+      <div class="tool-col">
+        <div class="tool-label">¿Genera tareas repetitivas?</div>
+        <div class="tool-options" id="rep-gdrive">
+          <button class="tool-btn" onclick="selectTool('rep-gdrive','si',this)">Sí</button>
+          <button class="tool-btn" onclick="selectTool('rep-gdrive','no',this)">No</button>
+        </div>
+      </div>
+    </div>
+    <div class="tool-label" style="margin-top:10px">¿Para qué la usas principalmente?</div>
+    <input class="tool-input" id="uso-gdrive" type="text" placeholder="Ej: Almacenar documentos, compartir materiales...">
+  </div>
+  <div class="nav"><button class="btn-back" onclick="goTo(7)">← Atrás</button><button class="btn-next" onclick="goTo(9)">Siguiente →</button></div>
 </div>
 
-<!-- SCREEN 9: CIERRE -->
 <div id="screen-9" style="display:none">
   <div class="tag tag-cierre">Cierre</div>
   <h2 class="section-title">¿Nos hemos dejado algo?</h2>
   <div class="context-box">Cualquier tarea de tu día a día que no hayamos mencionado y que sientas que consume tiempo de forma innecesaria, es muy repetitiva o podría hacerse de forma más eficiente.</div>
-
   <div class="question-label">¿Hay algo que no hemos preguntado y que quieras destacar?</div>
-  <textarea id="q9" rows="5" placeholder="Ej: La formación de nuevos PMs siempre la hago desde cero, pedir accesos a herramientas tarda mucho, el proceso de renovación de contratos no está claro..."></textarea>
-
-  <div class="nav">
-    <button class="btn-back" onclick="goTo(8)">← Atrás</button>
-    <button class="btn-next" onclick="submitForm()">Enviar respuestas ✓</button>
-  </div>
+  <textarea id="q9" rows="5" placeholder="Ej: La formación de nuevos PMs siempre la hago desde cero, pedir accesos a herramientas tarda mucho..."></textarea>
+  <div class="nav"><button class="btn-back" onclick="goTo(8)">← Atrás</button><button class="btn-next" onclick="submitForm()">Enviar respuestas ✓</button></div>
 </div>
 
-<!-- SCREEN SUCCESS -->
 <div id="screen-success" style="display:none;text-align:center;padding:20px 0">
   <div class="success-icon">✓</div>
   <h2 class="success-title">¡Muchas gracias!</h2>
   <p class="success-text">Tus respuestas nos ayudarán a identificar qué procesos podemos mejorar y dónde tiene más sentido actuar primero. El equipo de producto las revisará pronto. 🌿</p>
 </div>
 
-</div><!-- .card -->
+</div>
 </main>
 
 <script>
-// ─── CONFIG ────────────────────────────────────────────────────────────────
-// PEGA TU URL DEL GOOGLE APPS SCRIPT AQUI:
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzkuBpMa7B_bxHk1Dz4VG15PqMJ0914xG0J0ogtUQAGd2ALT0nBBRXkYqQS2yNuWxL3/exec";
-// ───────────────────────────────────────────────────────────────────────────
-
 const TOTAL = 9;
 let currentScreen = 0;
 const ratings = {};
+const toolRatings = {};
 
 function goTo(n) {
   document.getElementById("screen-" + currentScreen).style.display = "none";
   currentScreen = n;
   const el = document.getElementById("screen-" + n);
-  if (el) {
-    el.style.display = "block";
-    window.scrollTo({top: 0, behavior: "smooth"});
-  }
+  if (el) { el.style.display = "block"; window.scrollTo({top:0,behavior:"smooth"}); }
   const pw = document.getElementById("progressWrap");
-  if (n === 0 || n > TOTAL) {
-    pw.style.display = "none";
-  } else {
+  if (n === 0 || n > TOTAL) { pw.style.display = "none"; } else {
     pw.style.display = "block";
-    const pct = (n / TOTAL) * 100;
-    document.getElementById("progressFill").style.width = pct + "%";
+    document.getElementById("progressFill").style.width = ((n/TOTAL)*100) + "%";
     document.getElementById("progressLabel").textContent = n + " / " + TOTAL;
   }
 }
 
 function selectRating(groupId, value) {
   ratings[groupId] = value;
-  const btns = document.querySelectorAll("#" + groupId + " .rating-btn");
-  btns.forEach((b, i) => {
-    b.classList.toggle("selected", i + 1 === value);
+  document.querySelectorAll("#" + groupId + " .rating-btn").forEach((b,i) => {
+    b.classList.toggle("selected", i+1===value);
   });
 }
+
+function selectTool(groupId, value, btn) {
+  toolRatings[groupId] = value;
+  document.querySelectorAll("#" + groupId + " .tool-btn").forEach(b => b.classList.remove("selected"));
+  btn.classList.add("selected");
+}
+
+function getVal(id) { const el = document.getElementById(id); return el ? el.value : ""; }
 
 async function submitForm() {
   const data = {
     timestamp: new Date().toISOString(),
     form_type: "pm",
-    fase1_repetitividad: ratings["r1a"] || "",
-    fase1_tiempo: ratings["r1b"] || "",
-    fase1_frena: document.getElementById("q1").value,
-    fase2_repetitividad: ratings["r2a"] || "",
-    fase2_tiempo: ratings["r2b"] || "",
-    fase2_frena: document.getElementById("q2").value,
-    fase3_repetitividad: ratings["r3a"] || "",
-    fase3_tiempo: ratings["r3b"] || "",
-    fase3_frena: document.getElementById("q3").value,
-    fase4_repetitividad: ratings["r4a"] || "",
-    fase4_tiempo: ratings["r4b"] || "",
-    fase4_frena: document.getElementById("q4").value,
-    fase5_repetitividad: ratings["r5a"] || "",
-    fase5_tiempo: ratings["r5b"] || "",
-    fase5_frena: document.getElementById("q5").value,
-    fase6_repetitividad: ratings["r6a"] || "",
-    fase6_tiempo: ratings["r6b"] || "",
-    fase6_frena: document.getElementById("q6").value,
-    incidencias_repetitividad: ratings["r7a"] || "",
-    incidencias_tiempo: ratings["r7b"] || "",
-    incidencias_frena: document.getElementById("q7").value,
-    herramientas_repetitividad: ratings["r8a"] || "",
-    herramientas_tiempo: ratings["r8b"] || "",
-    herramientas_frena: document.getElementById("q8").value,
-    cierre: document.getElementById("q9").value
+    fase1_repetitividad: ratings["r1a"]||"", fase1_tiempo: ratings["r1b"]||"", fase1_frena: getVal("q1"),
+    fase2_repetitividad: ratings["r2a"]||"", fase2_tiempo: ratings["r2b"]||"", fase2_frena: getVal("q2"),
+    fase3_repetitividad: ratings["r3a"]||"", fase3_tiempo: ratings["r3b"]||"", fase3_frena: getVal("q3"),
+    fase4_repetitividad: ratings["r4a"]||"", fase4_tiempo: ratings["r4b"]||"", fase4_frena: getVal("q4"),
+    fase5_repetitividad: ratings["r5a"]||"", fase5_tiempo: ratings["r5b"]||"", fase5_frena: getVal("q5"),
+    simulaciones_repetitividad: ratings["r6a"]||"", simulaciones_tiempo: ratings["r6b"]||"", simulaciones_frena: getVal("q6"),
+    incidencias_repetitividad: ratings["r7a"]||"", incidencias_tiempo: ratings["r7b"]||"", incidencias_frena: getVal("q7"),
+    herramienta_api_bamboo_frecuencia: toolRatings["freq-api_bamboo"]||"",
+    herramienta_api_bamboo_repetitiva: toolRatings["rep-api_bamboo"]||"",
+    herramienta_api_bamboo_uso: getVal("uso-api_bamboo"),
+    herramienta_hubspot_frecuencia: toolRatings["freq-hubspot"]||"",
+    herramienta_hubspot_repetitiva: toolRatings["rep-hubspot"]||"",
+    herramienta_hubspot_uso: getVal("uso-hubspot"),
+    herramienta_confluence_frecuencia: toolRatings["freq-confluence"]||"",
+    herramienta_confluence_repetitiva: toolRatings["rep-confluence"]||"",
+    herramienta_confluence_uso: getVal("uso-confluence"),
+    herramienta_influxdb_frecuencia: toolRatings["freq-influxdb"]||"",
+    herramienta_influxdb_repetitiva: toolRatings["rep-influxdb"]||"",
+    herramienta_influxdb_uso: getVal("uso-influxdb"),
+    herramienta_looker_frecuencia: toolRatings["freq-looker"]||"",
+    herramienta_looker_repetitiva: toolRatings["rep-looker"]||"",
+    herramienta_looker_uso: getVal("uso-looker"),
+    herramienta_excel_frecuencia: toolRatings["freq-excel"]||"",
+    herramienta_excel_repetitiva: toolRatings["rep-excel"]||"",
+    herramienta_excel_uso: getVal("uso-excel"),
+    herramienta_gdrive_frecuencia: toolRatings["freq-gdrive"]||"",
+    herramienta_gdrive_repetitiva: toolRatings["rep-gdrive"]||"",
+    herramienta_gdrive_uso: getVal("uso-gdrive"),
+    cierre: getVal("q9")
   };
-
   document.getElementById("sendingOverlay").classList.add("active");
-
-  if (SCRIPT_URL === "PEGA_TU_URL_DE_APPS_SCRIPT_AQUI") {
-    // MODO DEMO: sin script configurado, muestra éxito directamente
-    setTimeout(() => {
-      document.getElementById("sendingOverlay").classList.remove("active");
-      goTo(10);
-      document.getElementById("screen-success").style.display = "block";
-      document.getElementById("progressWrap").style.display = "none";
-    }, 1200);
-    return;
-  }
-
-  try {
-    await fetch(SCRIPT_URL, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
-    });
-  } catch(e) { console.log("Sent (no-cors mode)"); }
-
+  try { await fetch(SCRIPT_URL, {method:"POST",mode:"no-cors",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)}); } catch(e) {}
   document.getElementById("sendingOverlay").classList.remove("active");
   goTo(10);
   document.getElementById("screen-success").style.display = "block";
