@@ -834,6 +834,7 @@ function selectRating(groupId, value) {
 async function submitForm() {
   const data = {
     timestamp: new Date().toISOString(),
+    form_type: "pm",
     fase1_repetitividad: ratings["r1a"] || "",
     fase1_tiempo: ratings["r1b"] || "",
     fase1_frena: document.getElementById("q1").value,
