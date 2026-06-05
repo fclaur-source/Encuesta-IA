@@ -581,7 +581,7 @@ function getVal(id) { const el = document.getElementById(id); return el ? el.val
 async function submitForm() {
   const data = {
     timestamp: new Date().toISOString(),
-    rol: selectedRole,
+    form_type: selectedRole === "bdev" ? "business" : "kam",
     bdev_fase1_rep: ratings["rb1a"]||"", bdev_fase1_tiempo: ratings["rb1b"]||"", bdev_fase1_frena: getVal("qb1"),
     bdev_fase2_outreach_rep: ratings["rb2a"]||"", bdev_fase2_outreach_tiempo: ratings["rb2b"]||"", bdev_fase2_outreach_frena: getVal("qb2"),
     bdev_fase3_rep: ratings["rb3a"]||"", bdev_fase3_tiempo: ratings["rb3b"]||"", bdev_fase3_frena: getVal("qb3"),
