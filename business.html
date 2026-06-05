@@ -424,6 +424,33 @@
   <textarea id="qk4" placeholder="Ej: No hay un canal claro para escalar peticiones del cliente al equipo de producto, pierdo tiempo haciendo seguimiento de si los compromisos se han cumplido..."></textarea>
   <div class="nav">
     <button class="btn-back" onclick="showScreen('screen-k3')">← Atrás</button>
+    <button class="btn-next" onclick="showScreen('screen-k5')">Siguiente →</button>
+  </div>
+</div>
+
+<div id="screen-k5" style="display:none">
+  <div class="tag tag-kam">KAM · Fase 5</div>
+  <h2 class="section-title">Gestión administrativa y facturación</h2>
+  <div class="context-box kam">Revisión y validación de facturas, seguimiento de pagos, actualización de datos contractuales en el sistema y resolución de incidencias administrativas con el cliente.</div>
+  <div class="rating-block">
+    <div class="rating-label">Repetitividad <span class="rating-sublabel">— ¿Con qué frecuencia realizas tareas repetitivas?</span></div>
+    <div class="rating-options" id="rk5a">
+      <button class="rating-btn" onclick="selectRating('rk5a',1)">1</button><button class="rating-btn" onclick="selectRating('rk5a',2)">2</button><button class="rating-btn" onclick="selectRating('rk5a',3)">3</button><button class="rating-btn" onclick="selectRating('rk5a',4)">4</button><button class="rating-btn" onclick="selectRating('rk5a',5)">5</button>
+    </div>
+    <div class="rating-legend"><span>Casi nunca</span><span>Constantemente</span></div>
+  </div>
+  <div class="rating-block">
+    <div class="rating-label">Consumo de tiempo <span class="rating-sublabel">— ¿Sientes que esta fase consume más tiempo del que merece?</span></div>
+    <div class="rating-options" id="rk5b">
+      <button class="rating-btn" onclick="selectRating('rk5b',1)">1</button><button class="rating-btn" onclick="selectRating('rk5b',2)">2</button><button class="rating-btn" onclick="selectRating('rk5b',3)">3</button><button class="rating-btn" onclick="selectRating('rk5b',4)">4</button><button class="rating-btn" onclick="selectRating('rk5b',5)">5</button>
+    </div>
+    <div class="rating-legend"><span>Para nada</span><span>Definitivamente sí</span></div>
+  </div>
+  <div class="divider"></div>
+  <div class="question-label">¿Qué es lo que más te frena o ralentiza en esta fase?</div>
+  <textarea id="qk5" placeholder="Ej: Verificar que las facturas son correctas requiere revisar datos en varios sistemas, las incidencias de facturación con el cliente tardan mucho en resolverse..."></textarea>
+  <div class="nav">
+    <button class="btn-back" onclick="showScreen('screen-k4')">← Atrás</button>
     <button class="btn-next" onclick="showScreen('screen-shared1')">Siguiente →</button>
   </div>
 </div>
@@ -524,7 +551,7 @@ let selectedRole = null;
 const ratings = {};
 
 const BDEV_SCREENS = ["screen-b1","screen-b2","screen-b3","screen-b4","screen-b5","screen-b6"];
-const KAM_SCREENS  = ["screen-k1","screen-k2","screen-k3","screen-k4"];
+const KAM_SCREENS  = ["screen-k1","screen-k2","screen-k3","screen-k4","screen-k5"];
 const SHARED_SCREENS = ["screen-shared1","screen-shared2","screen-prioridad","screen-cierre"];
 const ALL_SCREENS = ["screen-intro",...BDEV_SCREENS,...KAM_SCREENS,...SHARED_SCREENS,"screen-success"];
 
@@ -592,6 +619,7 @@ async function submitForm() {
     kam_fase2_rep: ratings["rk2a"]||"", kam_fase2_tiempo: ratings["rk2b"]||"", kam_fase2_frena: getVal("qk2"),
     kam_fase3_rep: ratings["rk3a"]||"", kam_fase3_tiempo: ratings["rk3b"]||"", kam_fase3_frena: getVal("qk3"),
     kam_fase4_rep: ratings["rk4a"]||"", kam_fase4_tiempo: ratings["rk4b"]||"", kam_fase4_frena: getVal("qk4"),
+    kam_fase5_admin_rep: ratings["rk5a"]||"", kam_fase5_admin_tiempo: ratings["rk5b"]||"", kam_fase5_admin_frena: getVal("qk5"),
     shared_reporting_rep: ratings["rs1a"]||"", shared_reporting_tiempo: ratings["rs1b"]||"", shared_reporting_frena: getVal("qs1"),
     shared_herramientas_rep: ratings["rs2a"]||"", shared_herramientas_tiempo: ratings["rs2b"]||"", shared_herramientas_frena: getVal("qs2"),
     prioridad: getVal("qprioridad"),
