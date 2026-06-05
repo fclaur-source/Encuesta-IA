@@ -99,6 +99,7 @@
   @keyframes spin { to { transform: rotate(360deg); } }
 
   @media (max-width: 600px) { .card { padding: 32px 24px; } .header { padding: 14px 20px; } .intro-title { font-size: 24px; } .rating-btn { max-width: 48px; font-size: 14px; } .role-btn { min-width: 100%; } }
+
 </style>
 </head>
 <body>
@@ -136,7 +137,6 @@
     <div class="pill">⏱ 5–8 minutos</div>
     <div class="pill">🔒 Respuestas anónimas</div>
   </div>
-
   <p class="question-label">¿Cuál es tu rol principal?</p>
   <div class="role-selector">
     <button class="role-btn" id="role-bdev" onclick="selectRole('bdev')">
@@ -148,22 +148,19 @@
       <span class="role-desc">Gestión de cuentas activas, cross-sell, renovaciones y coordinación con producto.</span>
     </button>
   </div>
-
   <div class="nav">
     <div></div>
     <button class="btn-next ml-auto" id="btnStart" onclick="startSurvey()" disabled>Empezar →</button>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════
-     BLOQUE A — BDEV (screens b1..b5)
-════════════════════════════════════════════════ -->
+<!-- ═══════ BLOQUE A — BDEV ═══════ -->
 
 <div id="screen-b1" style="display:none">
   <div class="tag tag-bdev">BDev · Fase 1</div>
   <h2 class="section-title">Prospección e identificación de leads</h2>
   <div class="context-box">Identificar empresas y contactos que encajan con el ICP, tanto inbound (demo requests, content downloads, LinkedIn Ads, eventos, webinars) como outbound (investigación, creación de listas, búsqueda de emails, LinkedIn Sales Navigator).</div>
-  <div class="rating-block">
+    <div class="rating-block">
     <div class="rating-label">Repetitividad <span class="rating-sublabel">— ¿Con qué frecuencia realizas tareas repetitivas?</span></div>
     <div class="rating-options" id="rb1a">
       <button class="rating-btn" onclick="selectRating('rb1a',1)">1</button><button class="rating-btn" onclick="selectRating('rb1a',2)">2</button><button class="rating-btn" onclick="selectRating('rb1a',3)">3</button><button class="rating-btn" onclick="selectRating('rb1a',4)">4</button><button class="rating-btn" onclick="selectRating('rb1a',5)">5</button>
@@ -171,15 +168,15 @@
     <div class="rating-legend"><span>Casi nunca</span><span>Constantemente</span></div>
   </div>
   <div class="rating-block">
-    <div class="rating-label">Consumo de tiempo <span class="rating-sublabel">— ¿Cuánto tiempo consume vs. lo que debería?</span></div>
+    <div class="rating-label">Consumo de tiempo <span class="rating-sublabel">— ¿Sientes que esta fase consume más tiempo del que merece?</span></div>
     <div class="rating-options" id="rb1b">
       <button class="rating-btn" onclick="selectRating('rb1b',1)">1</button><button class="rating-btn" onclick="selectRating('rb1b',2)">2</button><button class="rating-btn" onclick="selectRating('rb1b',3)">3</button><button class="rating-btn" onclick="selectRating('rb1b',4)">4</button><button class="rating-btn" onclick="selectRating('rb1b',5)">5</button>
     </div>
-    <div class="rating-legend"><span>Lo justo</span><span>Mucho más del necesario</span></div>
+    <div class="rating-legend"><span>Para nada</span><span>Definitivamente sí</span></div>
   </div>
   <div class="divider"></div>
   <div class="question-label">¿Qué es lo que más te frena o ralentiza en esta fase?</div>
-  <textarea id="qb1" placeholder="Ej: Buscar emails manualmente lleva mucho tiempo, construir las listas de prospección desde cero para cada campaña, no hay un proceso claro para priorizar segmentos..."></textarea>
+  <textarea id="qb1" placeholder="Ej: Buscar emails manualmente lleva mucho tiempo, construir las listas de prospección desde cero para cada campaña..."></textarea>
   <div class="nav">
     <button class="btn-back" onclick="showScreen('screen-intro')">← Atrás</button>
     <button class="btn-next" onclick="showScreen('screen-b2')">Siguiente →</button>
@@ -188,9 +185,9 @@
 
 <div id="screen-b2" style="display:none">
   <div class="tag tag-bdev">BDev · Fase 2</div>
-  <h2 class="section-title">Cualificación del lead</h2>
-  <div class="context-box">Primer contacto, reunión de cualificación (máx. 15 min), valoración de si la oportunidad avanza a MQL o no y actualización del pipeline en HubSpot con las propiedades correspondientes.</div>
-  <div class="rating-block">
+  <h2 class="section-title">Outreach y campañas</h2>
+  <div class="context-box">Preparación y envío de comunicaciones para campañas, ferias o webinars: creación de listas segmentadas, configuración de secuencias de emails y seguimiento de respuestas.</div>
+    <div class="rating-block">
     <div class="rating-label">Repetitividad <span class="rating-sublabel">— ¿Con qué frecuencia realizas tareas repetitivas?</span></div>
     <div class="rating-options" id="rb2a">
       <button class="rating-btn" onclick="selectRating('rb2a',1)">1</button><button class="rating-btn" onclick="selectRating('rb2a',2)">2</button><button class="rating-btn" onclick="selectRating('rb2a',3)">3</button><button class="rating-btn" onclick="selectRating('rb2a',4)">4</button><button class="rating-btn" onclick="selectRating('rb2a',5)">5</button>
@@ -198,15 +195,15 @@
     <div class="rating-legend"><span>Casi nunca</span><span>Constantemente</span></div>
   </div>
   <div class="rating-block">
-    <div class="rating-label">Consumo de tiempo <span class="rating-sublabel">— ¿Cuánto tiempo consume vs. lo que debería?</span></div>
+    <div class="rating-label">Consumo de tiempo <span class="rating-sublabel">— ¿Sientes que esta fase consume más tiempo del que merece?</span></div>
     <div class="rating-options" id="rb2b">
       <button class="rating-btn" onclick="selectRating('rb2b',1)">1</button><button class="rating-btn" onclick="selectRating('rb2b',2)">2</button><button class="rating-btn" onclick="selectRating('rb2b',3)">3</button><button class="rating-btn" onclick="selectRating('rb2b',4)">4</button><button class="rating-btn" onclick="selectRating('rb2b',5)">5</button>
     </div>
-    <div class="rating-legend"><span>Lo justo</span><span>Mucho más del necesario</span></div>
+    <div class="rating-legend"><span>Para nada</span><span>Definitivamente sí</span></div>
   </div>
   <div class="divider"></div>
   <div class="question-label">¿Qué es lo que más te frena o ralentiza en esta fase?</div>
-  <textarea id="qb2" placeholder="Ej: Actualizar HubSpot después de cada reunión lleva tiempo, los templates de email no siempre encajan bien, cuesta conseguir que el lead agende la llamada..."></textarea>
+  <textarea id="qb2" placeholder="Ej: Segmentar las listas para cada evento es muy manual, preparar los emails de seguimiento post-feria lleva mucho tiempo..."></textarea>
   <div class="nav">
     <button class="btn-back" onclick="showScreen('screen-b1')">← Atrás</button>
     <button class="btn-next" onclick="showScreen('screen-b3')">Siguiente →</button>
@@ -215,9 +212,9 @@
 
 <div id="screen-b3" style="display:none">
   <div class="tag tag-bdev">BDev · Fase 3</div>
-  <h2 class="section-title">Desarrollo de la oportunidad</h2>
-  <div class="context-box">Desde que el lead pasa a MQL hasta que se convierte en SQL: profundizar en las necesidades, preparar simulaciones o pre-assessments de flexibilidad e identificar al interlocutor clave.</div>
-  <div class="rating-block">
+  <h2 class="section-title">Cualificación del lead</h2>
+  <div class="context-box">Primer contacto, reunión de cualificación (máx. 15 min), valoración de si la oportunidad avanza a MQL o no y actualización del pipeline en HubSpot con las propiedades correspondientes.</div>
+    <div class="rating-block">
     <div class="rating-label">Repetitividad <span class="rating-sublabel">— ¿Con qué frecuencia realizas tareas repetitivas?</span></div>
     <div class="rating-options" id="rb3a">
       <button class="rating-btn" onclick="selectRating('rb3a',1)">1</button><button class="rating-btn" onclick="selectRating('rb3a',2)">2</button><button class="rating-btn" onclick="selectRating('rb3a',3)">3</button><button class="rating-btn" onclick="selectRating('rb3a',4)">4</button><button class="rating-btn" onclick="selectRating('rb3a',5)">5</button>
@@ -225,15 +222,15 @@
     <div class="rating-legend"><span>Casi nunca</span><span>Constantemente</span></div>
   </div>
   <div class="rating-block">
-    <div class="rating-label">Consumo de tiempo <span class="rating-sublabel">— ¿Cuánto tiempo consume vs. lo que debería?</span></div>
+    <div class="rating-label">Consumo de tiempo <span class="rating-sublabel">— ¿Sientes que esta fase consume más tiempo del que merece?</span></div>
     <div class="rating-options" id="rb3b">
       <button class="rating-btn" onclick="selectRating('rb3b',1)">1</button><button class="rating-btn" onclick="selectRating('rb3b',2)">2</button><button class="rating-btn" onclick="selectRating('rb3b',3)">3</button><button class="rating-btn" onclick="selectRating('rb3b',4)">4</button><button class="rating-btn" onclick="selectRating('rb3b',5)">5</button>
     </div>
-    <div class="rating-legend"><span>Lo justo</span><span>Mucho más del necesario</span></div>
+    <div class="rating-legend"><span>Para nada</span><span>Definitivamente sí</span></div>
   </div>
   <div class="divider"></div>
   <div class="question-label">¿Qué es lo que más te frena o ralentiza en esta fase?</div>
-  <textarea id="qb3" placeholder="Ej: Preparar las simulaciones de flexibilidad requiere coordinación con el equipo técnico y tarda mucho, es difícil llegar al decision maker real..."></textarea>
+  <textarea id="qb3" placeholder="Ej: Actualizar HubSpot después de cada reunión lleva tiempo, los templates de email no siempre encajan bien..."></textarea>
   <div class="nav">
     <button class="btn-back" onclick="showScreen('screen-b2')">← Atrás</button>
     <button class="btn-next" onclick="showScreen('screen-b4')">Siguiente →</button>
@@ -242,9 +239,9 @@
 
 <div id="screen-b4" style="display:none">
   <div class="tag tag-bdev">BDev · Fase 4</div>
-  <h2 class="section-title">Propuesta comercial y negociación</h2>
-  <div class="context-box">Preparar y enviar la propuesta (PPT o Word), gestionar el NDA si aplica, iterar sobre precio y alcance, responder a objeciones y avanzar hacia el cierre.</div>
-  <div class="rating-block">
+  <h2 class="section-title">Desarrollo de la oportunidad</h2>
+  <div class="context-box">Desde que el lead pasa a MQL hasta que se convierte en SQL: profundizar en las necesidades, preparar simulaciones o pre-assessments de flexibilidad e identificar al interlocutor clave.</div>
+    <div class="rating-block">
     <div class="rating-label">Repetitividad <span class="rating-sublabel">— ¿Con qué frecuencia realizas tareas repetitivas?</span></div>
     <div class="rating-options" id="rb4a">
       <button class="rating-btn" onclick="selectRating('rb4a',1)">1</button><button class="rating-btn" onclick="selectRating('rb4a',2)">2</button><button class="rating-btn" onclick="selectRating('rb4a',3)">3</button><button class="rating-btn" onclick="selectRating('rb4a',4)">4</button><button class="rating-btn" onclick="selectRating('rb4a',5)">5</button>
@@ -252,15 +249,15 @@
     <div class="rating-legend"><span>Casi nunca</span><span>Constantemente</span></div>
   </div>
   <div class="rating-block">
-    <div class="rating-label">Consumo de tiempo <span class="rating-sublabel">— ¿Cuánto tiempo consume vs. lo que debería?</span></div>
+    <div class="rating-label">Consumo de tiempo <span class="rating-sublabel">— ¿Sientes que esta fase consume más tiempo del que merece?</span></div>
     <div class="rating-options" id="rb4b">
       <button class="rating-btn" onclick="selectRating('rb4b',1)">1</button><button class="rating-btn" onclick="selectRating('rb4b',2)">2</button><button class="rating-btn" onclick="selectRating('rb4b',3)">3</button><button class="rating-btn" onclick="selectRating('rb4b',4)">4</button><button class="rating-btn" onclick="selectRating('rb4b',5)">5</button>
     </div>
-    <div class="rating-legend"><span>Lo justo</span><span>Mucho más del necesario</span></div>
+    <div class="rating-legend"><span>Para nada</span><span>Definitivamente sí</span></div>
   </div>
   <div class="divider"></div>
   <div class="question-label">¿Qué es lo que más te frena o ralentiza en esta fase?</div>
-  <textarea id="qb4" placeholder="Ej: Adaptar la propuesta PPT para cada cliente lleva mucho tiempo, el proceso de aprobación interna del precio no está claro, las negociaciones se alargan por falta de información técnica rápida..."></textarea>
+  <textarea id="qb4" placeholder="Ej: Preparar las simulaciones de flexibilidad requiere coordinación con el equipo técnico y tarda mucho..."></textarea>
   <div class="nav">
     <button class="btn-back" onclick="showScreen('screen-b3')">← Atrás</button>
     <button class="btn-next" onclick="showScreen('screen-b5')">Siguiente →</button>
@@ -269,9 +266,9 @@
 
 <div id="screen-b5" style="display:none">
   <div class="tag tag-bdev">BDev · Fase 5</div>
-  <h2 class="section-title">Cierre y traspaso interno</h2>
-  <div class="context-box">Firma del contrato, organización del kick-off interno con el equipo de producto/PM y traspaso de toda la información del cliente (contexto, negociaciones, documentos técnicos, mapa de stakeholders).</div>
-  <div class="rating-block">
+  <h2 class="section-title">Propuesta comercial y negociación</h2>
+  <div class="context-box">Preparar y enviar la propuesta (PPT o Word), gestionar el NDA si aplica, iterar sobre precio y alcance, responder a objeciones y avanzar hacia el cierre.</div>
+    <div class="rating-block">
     <div class="rating-label">Repetitividad <span class="rating-sublabel">— ¿Con qué frecuencia realizas tareas repetitivas?</span></div>
     <div class="rating-options" id="rb5a">
       <button class="rating-btn" onclick="selectRating('rb5a',1)">1</button><button class="rating-btn" onclick="selectRating('rb5a',2)">2</button><button class="rating-btn" onclick="selectRating('rb5a',3)">3</button><button class="rating-btn" onclick="selectRating('rb5a',4)">4</button><button class="rating-btn" onclick="selectRating('rb5a',5)">5</button>
@@ -279,30 +276,55 @@
     <div class="rating-legend"><span>Casi nunca</span><span>Constantemente</span></div>
   </div>
   <div class="rating-block">
-    <div class="rating-label">Consumo de tiempo <span class="rating-sublabel">— ¿Cuánto tiempo consume vs. lo que debería?</span></div>
+    <div class="rating-label">Consumo de tiempo <span class="rating-sublabel">— ¿Sientes que esta fase consume más tiempo del que merece?</span></div>
     <div class="rating-options" id="rb5b">
       <button class="rating-btn" onclick="selectRating('rb5b',1)">1</button><button class="rating-btn" onclick="selectRating('rb5b',2)">2</button><button class="rating-btn" onclick="selectRating('rb5b',3)">3</button><button class="rating-btn" onclick="selectRating('rb5b',4)">4</button><button class="rating-btn" onclick="selectRating('rb5b',5)">5</button>
     </div>
-    <div class="rating-legend"><span>Lo justo</span><span>Mucho más del necesario</span></div>
+    <div class="rating-legend"><span>Para nada</span><span>Definitivamente sí</span></div>
   </div>
   <div class="divider"></div>
   <div class="question-label">¿Qué es lo que más te frena o ralentiza en esta fase?</div>
-  <textarea id="qb5" placeholder="Ej: Preparar la documentación del kick-off desde cero para cada cliente, la información del cliente está dispersa en varios sitios y cuesta centralizarla..."></textarea>
+  <textarea id="qb5" placeholder="Ej: Adaptar la propuesta PPT para cada cliente lleva mucho tiempo, el proceso de aprobación interna del precio no está claro..."></textarea>
   <div class="nav">
     <button class="btn-back" onclick="showScreen('screen-b4')">← Atrás</button>
+    <button class="btn-next" onclick="showScreen('screen-b6')">Siguiente →</button>
+  </div>
+</div>
+
+<div id="screen-b6" style="display:none">
+  <div class="tag tag-bdev">BDev · Fase 6</div>
+  <h2 class="section-title">Cierre y traspaso interno</h2>
+  <div class="context-box">Firma del contrato, organización del kick-off interno con el equipo de producto/PM y traspaso de toda la información del cliente (contexto, negociaciones, documentos técnicos, mapa de stakeholders).</div>
+    <div class="rating-block">
+    <div class="rating-label">Repetitividad <span class="rating-sublabel">— ¿Con qué frecuencia realizas tareas repetitivas?</span></div>
+    <div class="rating-options" id="rb6a">
+      <button class="rating-btn" onclick="selectRating('rb6a',1)">1</button><button class="rating-btn" onclick="selectRating('rb6a',2)">2</button><button class="rating-btn" onclick="selectRating('rb6a',3)">3</button><button class="rating-btn" onclick="selectRating('rb6a',4)">4</button><button class="rating-btn" onclick="selectRating('rb6a',5)">5</button>
+    </div>
+    <div class="rating-legend"><span>Casi nunca</span><span>Constantemente</span></div>
+  </div>
+  <div class="rating-block">
+    <div class="rating-label">Consumo de tiempo <span class="rating-sublabel">— ¿Sientes que esta fase consume más tiempo del que merece?</span></div>
+    <div class="rating-options" id="rb6b">
+      <button class="rating-btn" onclick="selectRating('rb6b',1)">1</button><button class="rating-btn" onclick="selectRating('rb6b',2)">2</button><button class="rating-btn" onclick="selectRating('rb6b',3)">3</button><button class="rating-btn" onclick="selectRating('rb6b',4)">4</button><button class="rating-btn" onclick="selectRating('rb6b',5)">5</button>
+    </div>
+    <div class="rating-legend"><span>Para nada</span><span>Definitivamente sí</span></div>
+  </div>
+  <div class="divider"></div>
+  <div class="question-label">¿Qué es lo que más te frena o ralentiza en esta fase?</div>
+  <textarea id="qb6" placeholder="Ej: Preparar la documentación del kick-off desde cero para cada cliente, la información del cliente está dispersa en varios sitios..."></textarea>
+  <div class="nav">
+    <button class="btn-back" onclick="showScreen('screen-b5')">← Atrás</button>
     <button class="btn-next" onclick="showScreen('screen-shared1')">Siguiente →</button>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════
-     BLOQUE B — KAM (screens k1..k4)
-════════════════════════════════════════════════ -->
+<!-- ═══════ BLOQUE B — KAM ═══════ -->
 
 <div id="screen-k1" style="display:none">
   <div class="tag tag-kam">KAM · Fase 1</div>
   <h2 class="section-title">Seguimiento de cuentas activas</h2>
   <div class="context-box kam">Mantener una relación regular con los clientes existentes, supervisar el estado de los contratos, asegurarse de que el servicio se entrega correctamente y detectar señales de riesgo o insatisfacción.</div>
-  <div class="rating-block">
+    <div class="rating-block">
     <div class="rating-label">Repetitividad <span class="rating-sublabel">— ¿Con qué frecuencia realizas tareas repetitivas?</span></div>
     <div class="rating-options" id="rk1a">
       <button class="rating-btn" onclick="selectRating('rk1a',1)">1</button><button class="rating-btn" onclick="selectRating('rk1a',2)">2</button><button class="rating-btn" onclick="selectRating('rk1a',3)">3</button><button class="rating-btn" onclick="selectRating('rk1a',4)">4</button><button class="rating-btn" onclick="selectRating('rk1a',5)">5</button>
@@ -310,15 +332,15 @@
     <div class="rating-legend"><span>Casi nunca</span><span>Constantemente</span></div>
   </div>
   <div class="rating-block">
-    <div class="rating-label">Consumo de tiempo <span class="rating-sublabel">— ¿Cuánto tiempo consume vs. lo que debería?</span></div>
+    <div class="rating-label">Consumo de tiempo <span class="rating-sublabel">— ¿Sientes que esta fase consume más tiempo del que merece?</span></div>
     <div class="rating-options" id="rk1b">
       <button class="rating-btn" onclick="selectRating('rk1b',1)">1</button><button class="rating-btn" onclick="selectRating('rk1b',2)">2</button><button class="rating-btn" onclick="selectRating('rk1b',3)">3</button><button class="rating-btn" onclick="selectRating('rk1b',4)">4</button><button class="rating-btn" onclick="selectRating('rk1b',5)">5</button>
     </div>
-    <div class="rating-legend"><span>Lo justo</span><span>Mucho más del necesario</span></div>
+    <div class="rating-legend"><span>Para nada</span><span>Definitivamente sí</span></div>
   </div>
   <div class="divider"></div>
   <div class="question-label">¿Qué es lo que más te frena o ralentiza en esta fase?</div>
-  <textarea id="qk1" placeholder="Ej: No tengo una vista centralizada del estado de todos mis clientes, tengo que ir cuenta por cuenta en HubSpot, detectar señales de riesgo depende de que alguien me avise..."></textarea>
+  <textarea id="qk1" placeholder="Ej: No tengo una vista centralizada del estado de todos mis clientes, tengo que ir cuenta por cuenta en HubSpot..."></textarea>
   <div class="nav">
     <button class="btn-back" onclick="showScreen('screen-intro')">← Atrás</button>
     <button class="btn-next" onclick="showScreen('screen-k2')">Siguiente →</button>
@@ -329,7 +351,7 @@
   <div class="tag tag-kam">KAM · Fase 2</div>
   <h2 class="section-title">Cross-sell y upselling</h2>
   <div class="context-box kam">Identificar oportunidades de ampliar el alcance del servicio dentro de cuentas existentes: nuevos productos, más clientes en el portfolio del cliente, nuevas geografías o nuevos casos de uso.</div>
-  <div class="rating-block">
+    <div class="rating-block">
     <div class="rating-label">Repetitividad <span class="rating-sublabel">— ¿Con qué frecuencia realizas tareas repetitivas?</span></div>
     <div class="rating-options" id="rk2a">
       <button class="rating-btn" onclick="selectRating('rk2a',1)">1</button><button class="rating-btn" onclick="selectRating('rk2a',2)">2</button><button class="rating-btn" onclick="selectRating('rk2a',3)">3</button><button class="rating-btn" onclick="selectRating('rk2a',4)">4</button><button class="rating-btn" onclick="selectRating('rk2a',5)">5</button>
@@ -337,11 +359,11 @@
     <div class="rating-legend"><span>Casi nunca</span><span>Constantemente</span></div>
   </div>
   <div class="rating-block">
-    <div class="rating-label">Consumo de tiempo <span class="rating-sublabel">— ¿Cuánto tiempo consume vs. lo que debería?</span></div>
+    <div class="rating-label">Consumo de tiempo <span class="rating-sublabel">— ¿Sientes que esta fase consume más tiempo del que merece?</span></div>
     <div class="rating-options" id="rk2b">
       <button class="rating-btn" onclick="selectRating('rk2b',1)">1</button><button class="rating-btn" onclick="selectRating('rk2b',2)">2</button><button class="rating-btn" onclick="selectRating('rk2b',3)">3</button><button class="rating-btn" onclick="selectRating('rk2b',4)">4</button><button class="rating-btn" onclick="selectRating('rk2b',5)">5</button>
     </div>
-    <div class="rating-legend"><span>Lo justo</span><span>Mucho más del necesario</span></div>
+    <div class="rating-legend"><span>Para nada</span><span>Definitivamente sí</span></div>
   </div>
   <div class="divider"></div>
   <div class="question-label">¿Qué es lo que más te frena o ralentiza en esta fase?</div>
@@ -356,7 +378,7 @@
   <div class="tag tag-kam">KAM · Fase 3</div>
   <h2 class="section-title">Renovación de contratos</h2>
   <div class="context-box kam">Gestionar el proceso de renovación antes de que venza el contrato: revisar condiciones, preparar la propuesta de renovación, negociar términos y cerrar el acuerdo.</div>
-  <div class="rating-block">
+    <div class="rating-block">
     <div class="rating-label">Repetitividad <span class="rating-sublabel">— ¿Con qué frecuencia realizas tareas repetitivas?</span></div>
     <div class="rating-options" id="rk3a">
       <button class="rating-btn" onclick="selectRating('rk3a',1)">1</button><button class="rating-btn" onclick="selectRating('rk3a',2)">2</button><button class="rating-btn" onclick="selectRating('rk3a',3)">3</button><button class="rating-btn" onclick="selectRating('rk3a',4)">4</button><button class="rating-btn" onclick="selectRating('rk3a',5)">5</button>
@@ -364,11 +386,11 @@
     <div class="rating-legend"><span>Casi nunca</span><span>Constantemente</span></div>
   </div>
   <div class="rating-block">
-    <div class="rating-label">Consumo de tiempo <span class="rating-sublabel">— ¿Cuánto tiempo consume vs. lo que debería?</span></div>
+    <div class="rating-label">Consumo de tiempo <span class="rating-sublabel">— ¿Sientes que esta fase consume más tiempo del que merece?</span></div>
     <div class="rating-options" id="rk3b">
       <button class="rating-btn" onclick="selectRating('rk3b',1)">1</button><button class="rating-btn" onclick="selectRating('rk3b',2)">2</button><button class="rating-btn" onclick="selectRating('rk3b',3)">3</button><button class="rating-btn" onclick="selectRating('rk3b',4)">4</button><button class="rating-btn" onclick="selectRating('rk3b',5)">5</button>
     </div>
-    <div class="rating-legend"><span>Lo justo</span><span>Mucho más del necesario</span></div>
+    <div class="rating-legend"><span>Para nada</span><span>Definitivamente sí</span></div>
   </div>
   <div class="divider"></div>
   <div class="question-label">¿Qué es lo que más te frena o ralentiza en esta fase?</div>
@@ -383,7 +405,7 @@
   <div class="tag tag-kam">KAM · Fase 4</div>
   <h2 class="section-title">Coordinación con el equipo de producto</h2>
   <div class="context-box kam">Actuar como puente entre el cliente y Customer Success/PM: escalar incidencias, trasladar peticiones del cliente y asegurar que los compromisos comerciales se reflejan en la ejecución técnica.</div>
-  <div class="rating-block">
+    <div class="rating-block">
     <div class="rating-label">Repetitividad <span class="rating-sublabel">— ¿Con qué frecuencia realizas tareas repetitivas?</span></div>
     <div class="rating-options" id="rk4a">
       <button class="rating-btn" onclick="selectRating('rk4a',1)">1</button><button class="rating-btn" onclick="selectRating('rk4a',2)">2</button><button class="rating-btn" onclick="selectRating('rk4a',3)">3</button><button class="rating-btn" onclick="selectRating('rk4a',4)">4</button><button class="rating-btn" onclick="selectRating('rk4a',5)">5</button>
@@ -391,11 +413,11 @@
     <div class="rating-legend"><span>Casi nunca</span><span>Constantemente</span></div>
   </div>
   <div class="rating-block">
-    <div class="rating-label">Consumo de tiempo <span class="rating-sublabel">— ¿Cuánto tiempo consume vs. lo que debería?</span></div>
+    <div class="rating-label">Consumo de tiempo <span class="rating-sublabel">— ¿Sientes que esta fase consume más tiempo del que merece?</span></div>
     <div class="rating-options" id="rk4b">
       <button class="rating-btn" onclick="selectRating('rk4b',1)">1</button><button class="rating-btn" onclick="selectRating('rk4b',2)">2</button><button class="rating-btn" onclick="selectRating('rk4b',3)">3</button><button class="rating-btn" onclick="selectRating('rk4b',4)">4</button><button class="rating-btn" onclick="selectRating('rk4b',5)">5</button>
     </div>
-    <div class="rating-legend"><span>Lo justo</span><span>Mucho más del necesario</span></div>
+    <div class="rating-legend"><span>Para nada</span><span>Definitivamente sí</span></div>
   </div>
   <div class="divider"></div>
   <div class="question-label">¿Qué es lo que más te frena o ralentiza en esta fase?</div>
@@ -406,15 +428,13 @@
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════
-     BLOQUE C — COMPARTIDO
-════════════════════════════════════════════════ -->
+<!-- ═══════ BLOQUE C — COMPARTIDO ═══════ -->
 
 <div id="screen-shared1" style="display:none">
   <div class="tag tag-shared">Sección compartida</div>
   <h2 class="section-title">Reporting y métricas</h2>
-  <div class="context-box">Preparación de informes recurrentes: BDev Monthly, Bamboo Coordination Meeting, seguimiento de KPIs del pipeline (leads, MQLs, SQLs, ofertas, contratos) y actualización de paneles en HubSpot.</div>
-  <div class="rating-block">
+  <div class="context-box">Preparación de informes recurrentes: BDev Monthly, Bamboo Coordination Meeting, seguimiento de KPIs del pipeline y actualización de paneles en HubSpot.</div>
+    <div class="rating-block">
     <div class="rating-label">Repetitividad <span class="rating-sublabel">— ¿Con qué frecuencia realizas tareas repetitivas?</span></div>
     <div class="rating-options" id="rs1a">
       <button class="rating-btn" onclick="selectRating('rs1a',1)">1</button><button class="rating-btn" onclick="selectRating('rs1a',2)">2</button><button class="rating-btn" onclick="selectRating('rs1a',3)">3</button><button class="rating-btn" onclick="selectRating('rs1a',4)">4</button><button class="rating-btn" onclick="selectRating('rs1a',5)">5</button>
@@ -422,11 +442,11 @@
     <div class="rating-legend"><span>Casi nunca</span><span>Constantemente</span></div>
   </div>
   <div class="rating-block">
-    <div class="rating-label">Consumo de tiempo <span class="rating-sublabel">— ¿Cuánto tiempo consume vs. lo que debería?</span></div>
+    <div class="rating-label">Consumo de tiempo <span class="rating-sublabel">— ¿Sientes que esta fase consume más tiempo del que merece?</span></div>
     <div class="rating-options" id="rs1b">
       <button class="rating-btn" onclick="selectRating('rs1b',1)">1</button><button class="rating-btn" onclick="selectRating('rs1b',2)">2</button><button class="rating-btn" onclick="selectRating('rs1b',3)">3</button><button class="rating-btn" onclick="selectRating('rs1b',4)">4</button><button class="rating-btn" onclick="selectRating('rs1b',5)">5</button>
     </div>
-    <div class="rating-legend"><span>Lo justo</span><span>Mucho más del necesario</span></div>
+    <div class="rating-legend"><span>Para nada</span><span>Definitivamente sí</span></div>
   </div>
   <div class="divider"></div>
   <div class="question-label">¿Qué es lo que más te frena en la preparación de reportes?</div>
@@ -441,7 +461,7 @@
   <div class="tag tag-shared">Sección compartida</div>
   <h2 class="section-title">Herramientas del día a día</h2>
   <div class="context-box">Uso recurrente de HubSpot, LinkedIn Sales Navigator, Google Drive, FindThatLead, RocketReach, Confluence, Jira u otras herramientas.</div>
-  <div class="rating-block">
+    <div class="rating-block">
     <div class="rating-label">Repetitividad <span class="rating-sublabel">— ¿Con qué frecuencia realizas tareas repetitivas?</span></div>
     <div class="rating-options" id="rs2a">
       <button class="rating-btn" onclick="selectRating('rs2a',1)">1</button><button class="rating-btn" onclick="selectRating('rs2a',2)">2</button><button class="rating-btn" onclick="selectRating('rs2a',3)">3</button><button class="rating-btn" onclick="selectRating('rs2a',4)">4</button><button class="rating-btn" onclick="selectRating('rs2a',5)">5</button>
@@ -449,17 +469,29 @@
     <div class="rating-legend"><span>Casi nunca</span><span>Constantemente</span></div>
   </div>
   <div class="rating-block">
-    <div class="rating-label">Consumo de tiempo <span class="rating-sublabel">— ¿Cuánto tiempo consume vs. lo que debería?</span></div>
+    <div class="rating-label">Consumo de tiempo <span class="rating-sublabel">— ¿Sientes que esta fase consume más tiempo del que merece?</span></div>
     <div class="rating-options" id="rs2b">
       <button class="rating-btn" onclick="selectRating('rs2b',1)">1</button><button class="rating-btn" onclick="selectRating('rs2b',2)">2</button><button class="rating-btn" onclick="selectRating('rs2b',3)">3</button><button class="rating-btn" onclick="selectRating('rs2b',4)">4</button><button class="rating-btn" onclick="selectRating('rs2b',5)">5</button>
     </div>
-    <div class="rating-legend"><span>Lo justo</span><span>Mucho más del necesario</span></div>
+    <div class="rating-legend"><span>Para nada</span><span>Definitivamente sí</span></div>
   </div>
   <div class="divider"></div>
   <div class="question-label">¿Entre qué herramientas mueves información con más frecuencia? ¿Dónde pierdes más tiempo?</div>
-  <textarea id="qs2" placeholder="Ej: Actualizar HubSpot y el Excel de tracking por separado, buscar emails con varias herramientas distintas, la información de clientes está en Drive, Confluence y HubSpot a la vez..."></textarea>
+  <textarea id="qs2" placeholder="Ej: Actualizar HubSpot y el Excel de tracking por separado, buscar emails con varias herramientas distintas..."></textarea>
   <div class="nav">
     <button class="btn-back" onclick="showScreen('screen-shared1')">← Atrás</button>
+    <button class="btn-next" onclick="showScreen('screen-prioridad')">Siguiente →</button>
+  </div>
+</div>
+
+<div id="screen-prioridad" style="display:none">
+  <div class="tag tag-shared">Sección compartida</div>
+  <h2 class="section-title">Prioridad de mejora</h2>
+  <div class="context-box">Ya has valorado cada área de forma individual. Ahora nos interesa saber tu opinión global.</div>
+  <div class="question-label">De todas las áreas que hemos visto, ¿en cuál te gustaría más tener ayuda o automatización? ¿Por qué?</div>
+  <textarea id="qprioridad" rows="4" placeholder="Ej: En la prospección outbound, porque buscar y verificar emails me lleva horas cada semana y siento que es muy mecánico. O: en el reporting, porque siempre lo hago a última hora y los datos nunca están en el mismo sitio..."></textarea>
+  <div class="nav">
+    <button class="btn-back" onclick="showScreen('screen-shared2')">← Atrás</button>
     <button class="btn-next" onclick="showScreen('screen-cierre')">Siguiente →</button>
   </div>
 </div>
@@ -469,14 +501,13 @@
   <h2 class="section-title">¿Nos hemos dejado algo?</h2>
   <div class="context-box">Cualquier tarea de tu día a día que no hayamos mencionado y que sientas que consume tiempo de forma innecesaria, es muy repetitiva o podría hacerse de forma más eficiente.</div>
   <div class="question-label">¿Hay algo que no hemos preguntado y que quieras destacar?</div>
-  <textarea id="qcierre" rows="5" placeholder="Ej: La coordinación con Marketing para las campañas no tiene un proceso claro, preparar materiales para eventos es siempre ad-hoc y tarda mucho..."></textarea>
+  <textarea id="qcierre" rows="5" placeholder="Ej: La coordinación con Marketing para las campañas no tiene un proceso claro, preparar materiales para eventos es siempre ad-hoc..."></textarea>
   <div class="nav">
-    <button class="btn-back" onclick="showScreen('screen-shared2')">← Atrás</button>
+    <button class="btn-back" onclick="showScreen('screen-prioridad')">← Atrás</button>
     <button class="btn-next" onclick="submitForm()">Enviar respuestas ✓</button>
   </div>
 </div>
 
-<!-- SUCCESS -->
 <div id="screen-success" style="display:none;text-align:center;padding:20px 0">
   <div class="success-icon">✓</div>
   <h2 class="success-title">¡Muchas gracias!</h2>
@@ -492,9 +523,9 @@ const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzkuBpMa7B_bxHk1Dz4V
 let selectedRole = null;
 const ratings = {};
 
-const BDEV_SCREENS = ["screen-b1","screen-b2","screen-b3","screen-b4","screen-b5"];
+const BDEV_SCREENS = ["screen-b1","screen-b2","screen-b3","screen-b4","screen-b5","screen-b6"];
 const KAM_SCREENS  = ["screen-k1","screen-k2","screen-k3","screen-k4"];
-const SHARED_SCREENS = ["screen-shared1","screen-shared2","screen-cierre"];
+const SHARED_SCREENS = ["screen-shared1","screen-shared2","screen-prioridad","screen-cierre"];
 const ALL_SCREENS = ["screen-intro",...BDEV_SCREENS,...KAM_SCREENS,...SHARED_SCREENS,"screen-success"];
 
 let roleScreens = [];
@@ -516,12 +547,9 @@ function startSurvey() {
 }
 
 function showScreen(id) {
-  ALL_SCREENS.forEach(s => {
-    const el = document.getElementById(s);
-    if (el) el.style.display = "none";
-  });
+  ALL_SCREENS.forEach(s => { const el = document.getElementById(s); if(el) el.style.display = "none"; });
   const el = document.getElementById(id);
-  if (el) { el.style.display = "block"; window.scrollTo({top:0,behavior:"smooth"}); }
+  if(el) { el.style.display = "block"; window.scrollTo({top:0,behavior:"smooth"}); }
   currentIdx = roleScreens.indexOf(id);
   updateProgress();
 }
@@ -529,9 +557,7 @@ function showScreen(id) {
 function updateProgress() {
   const pw = document.getElementById("progressWrap");
   const total = roleScreens.length - 2;
-  if (currentIdx <= 0 || currentIdx >= roleScreens.length - 1) {
-    pw.style.display = "none"; return;
-  }
+  if(currentIdx <= 0 || currentIdx >= roleScreens.length - 1) { pw.style.display = "none"; return; }
   pw.style.display = "block";
   const pct = (currentIdx / total) * 100;
   document.getElementById("progressFill").style.width = pct + "%";
@@ -546,37 +572,35 @@ function goBackFromShared() {
 function selectRating(groupId, value) {
   ratings[groupId] = value;
   document.querySelectorAll("#" + groupId + " .rating-btn").forEach((b,i) => {
-    b.classList.toggle("selected", i + 1 === value);
+    b.classList.toggle("selected", i+1===value);
   });
 }
 
-function getVal(id) {
-  const el = document.getElementById(id);
-  return el ? el.value : "";
-}
+function getVal(id) { const el = document.getElementById(id); return el ? el.value : ""; }
 
 async function submitForm() {
   const data = {
     timestamp: new Date().toISOString(),
-    form_type: "business",
     rol: selectedRole,
     bdev_fase1_rep: ratings["rb1a"]||"", bdev_fase1_tiempo: ratings["rb1b"]||"", bdev_fase1_frena: getVal("qb1"),
-    bdev_fase2_rep: ratings["rb2a"]||"", bdev_fase2_tiempo: ratings["rb2b"]||"", bdev_fase2_frena: getVal("qb2"),
+    bdev_fase2_outreach_rep: ratings["rb2a"]||"", bdev_fase2_outreach_tiempo: ratings["rb2b"]||"", bdev_fase2_outreach_frena: getVal("qb2"),
     bdev_fase3_rep: ratings["rb3a"]||"", bdev_fase3_tiempo: ratings["rb3b"]||"", bdev_fase3_frena: getVal("qb3"),
     bdev_fase4_rep: ratings["rb4a"]||"", bdev_fase4_tiempo: ratings["rb4b"]||"", bdev_fase4_frena: getVal("qb4"),
     bdev_fase5_rep: ratings["rb5a"]||"", bdev_fase5_tiempo: ratings["rb5b"]||"", bdev_fase5_frena: getVal("qb5"),
+    bdev_fase6_rep: ratings["rb6a"]||"", bdev_fase6_tiempo: ratings["rb6b"]||"", bdev_fase6_frena: getVal("qb6"),
     kam_fase1_rep: ratings["rk1a"]||"", kam_fase1_tiempo: ratings["rk1b"]||"", kam_fase1_frena: getVal("qk1"),
     kam_fase2_rep: ratings["rk2a"]||"", kam_fase2_tiempo: ratings["rk2b"]||"", kam_fase2_frena: getVal("qk2"),
     kam_fase3_rep: ratings["rk3a"]||"", kam_fase3_tiempo: ratings["rk3b"]||"", kam_fase3_frena: getVal("qk3"),
     kam_fase4_rep: ratings["rk4a"]||"", kam_fase4_tiempo: ratings["rk4b"]||"", kam_fase4_frena: getVal("qk4"),
     shared_reporting_rep: ratings["rs1a"]||"", shared_reporting_tiempo: ratings["rs1b"]||"", shared_reporting_frena: getVal("qs1"),
     shared_herramientas_rep: ratings["rs2a"]||"", shared_herramientas_tiempo: ratings["rs2b"]||"", shared_herramientas_frena: getVal("qs2"),
+    prioridad: getVal("qprioridad"),
     cierre: getVal("qcierre")
   };
 
   document.getElementById("sendingOverlay").classList.add("active");
 
-  if (SCRIPT_URL === "PEGA_TU_URL_DE_APPS_SCRIPT_AQUI") {
+  if(SCRIPT_URL === "PEGA_TU_URL_DE_APPS_SCRIPT_AQUI") {
     setTimeout(() => {
       document.getElementById("sendingOverlay").classList.remove("active");
       showScreen("screen-success");
@@ -585,7 +609,7 @@ async function submitForm() {
   }
 
   try {
-    await fetch(SCRIPT_URL, { method:"POST", mode:"no-cors", headers:{"Content-Type":"application/json"}, body: JSON.stringify(data) });
+    await fetch(SCRIPT_URL, {method:"POST", mode:"no-cors", headers:{"Content-Type":"application/json"}, body:JSON.stringify(data)});
   } catch(e) { console.log("Sent"); }
 
   document.getElementById("sendingOverlay").classList.remove("active");
